@@ -10,8 +10,8 @@ description: >-
   A personal technical blog covering software architecture, AI engineering,
   Java, Spring, Azure, Pega, security, and career notes.
 
-url: "https://yourusername.github.io"   # e.g. https://janedoe.github.io
-baseurl: ""                             # "/repo-name" if not a username.github.io repo
+url: "https://niranjanrath.github.io"
+baseurl: "/blog"                     
 
 author:
   name: "Your Name"
