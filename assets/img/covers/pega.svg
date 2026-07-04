@@ -1,0 +1,14 @@
+<svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pega-bg" x1="0" y1="0" x2="320" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1e0e33"/>
+      <stop offset="1" stop-color="#4a2170"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" fill="url(#pega-bg)"/>
+  <g stroke="#c9a3f2" stroke-width="2" fill="none" stroke-linejoin="round">
+    <path d="M160 55 l55 30v60l-55 30-55-30V85Z"/>
+    <path d="M160 55v60M105 85l55 30M215 85l-55 30"/>
+  </g>
+  <circle cx="160" cy="115" r="6" fill="#c9a3f2"/>
+</svg>

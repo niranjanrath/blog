@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{% assign topic_posts = site.posts | where_exp: "post", "post.topics contains page.topic" %}
+<div class="topic-page">
+  <header class="topic-header">
+    <p class="eyebrow">Topic</p>
+    <h1 class="page-title">{{ page.topic }}</h1>
+    <p class="topic-count">
+      {{ topic_posts | size }} article{% if topic_posts.size != 1 %}s{% endif %}
+    </p>
+  </header>
+
+  {% include post-list.html posts=topic_posts %}
+</div>

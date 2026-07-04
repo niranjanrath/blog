@@ -1,0 +1,14 @@
+<svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="spring-bg" x1="0" y1="0" x2="320" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e2a12"/>
+      <stop offset="1" stop-color="#1f5c2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" fill="url(#spring-bg)"/>
+  <g stroke="#8ee89a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M205 70c26 36 22 88-14 128-38 38-90 40-126 15 22 3 47-3 68-24 22-22 28-47 24-68"/>
+    <path d="M205 70c-19-13-48-11-72 13-23 23-27 54-13 72"/>
+    <path d="M205 70c-21-25-52-32-73-19M133 179c-9-27-1-56 23-79"/>
+  </g>
+</svg>

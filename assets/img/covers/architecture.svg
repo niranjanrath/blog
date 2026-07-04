@@ -1,0 +1,18 @@
+<svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arch-bg" x1="0" y1="0" x2="320" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e2038"/>
+      <stop offset="1" stop-color="#1a3c63"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" fill="url(#arch-bg)"/>
+  <g stroke="#5aa0f2" stroke-width="1.5" fill="none" opacity="0.9">
+    <rect x="60" y="60" width="46" height="34" rx="3"/>
+    <rect x="220" y="60" width="46" height="34" rx="3"/>
+    <rect x="140" y="140" width="46" height="34" rx="3"/>
+    <path d="M83 94v22h60M243 94v22h-60M163 140V116"/>
+  </g>
+  <circle cx="83" cy="77" r="4" fill="#8ec2ff"/>
+  <circle cx="243" cy="77" r="4" fill="#8ec2ff"/>
+  <circle cx="163" cy="157" r="4" fill="#8ec2ff"/>
+</svg>

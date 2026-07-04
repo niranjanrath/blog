@@ -1,0 +1,35 @@
+<aside class="sidebar">
+  <p class="sidebar-heading">Topics</p>
+  <ul class="topic-list">
+    <li>
+      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>
+        <span class="topic-label"><span class="topic-icon">{% include icon.html name="all-posts" %}</span>All Posts</span>
+        <span class="topic-count-badge">{{ site.posts.size }}</span>
+      </a>
+    </li>
+    {% for topic in site.data.topics_index %}
+    {% assign meta = site.data.topics[topic.slug] | default: site.data.topics["default"] %}
+    <li>
+      <a href="{{ site.baseurl }}/topics/{{ topic.slug }}/" {% if page.topic == topic.name %}aria-current="page"{% endif %}>
+        <span class="topic-label"><span class="topic-icon">{% include icon.html name=meta.icon %}</span>{{ topic.name }}</span>
+        <span class="topic-count-badge">{{ topic.count }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="sidebar-card">
+    <p class="sidebar-card-title">About Me</p>
+    <p class="sidebar-card-text">{{ site.author.bio | truncatewords: 20 }}</p>
+    <a class="sidebar-card-link" href="{{ '/about/' | relative_url }}">Read more &rarr;</a>
+  </div>
+
+  <div class="sidebar-card">
+    <p class="sidebar-card-title">Stay Connected</p>
+    <div class="social-row">
+      <a class="social-icon" href="{{ site.author.github }}" target="_blank" rel="noopener me" aria-label="GitHub">{% include icon.html name="github" %}</a>
+      <a class="social-icon" href="{{ site.author.linkedin }}" target="_blank" rel="noopener me" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a>
+      <a class="social-icon" href="mailto:{{ site.author.email }}" aria-label="Email">{% include icon.html name="email" %}</a>
+    </div>
+  </div>
+</aside>

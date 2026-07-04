@@ -1,0 +1,15 @@
+<svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="az-bg" x1="0" y1="0" x2="320" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#081a33"/>
+      <stop offset="1" stop-color="#0f3a6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" fill="url(#az-bg)"/>
+  <g opacity="0.5" stroke="#3d7fd6" stroke-width="10" fill="none">
+    <circle cx="80" cy="60" r="2"/>
+    <circle cx="260" cy="190" r="2"/>
+  </g>
+  <path d="M130 60 l38 0 -60 105 h-70 z" fill="#1a4a86" stroke="#6fa8e8" stroke-width="1.5"/>
+  <path d="M150 60 l45 0 55 120 h-95 l30 -55 -30 -25 z" fill="#215aa0" stroke="#8ec2ff" stroke-width="1.5"/>
+</svg>

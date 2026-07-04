@@ -1,0 +1,102 @@
+{%- comment -%}
+  Usage: {% include icon.html name="architecture" %}
+  Falls back to the "default" (tag) icon if the name isn't recognized.
+{%- endcomment -%}
+{%- case include.name -%}
+
+{%- when "all-posts" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M6.5 7.5h7M6.5 10h7M6.5 12.5h4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+
+{%- when "architecture" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="3" y="11" width="4.5" height="6" rx="0.75" stroke="currentColor" stroke-width="1.5"/>
+  <rect x="8.25" y="7.5" width="4.5" height="9.5" rx="0.75" stroke="currentColor" stroke-width="1.5"/>
+  <rect x="13.5" y="3.5" width="4.5" height="13.5" rx="0.75" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+
+{%- when "ai" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="6" y="6" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="10" cy="10" r="1.75" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M10 2.5v2.2M10 15.3v2.2M2.5 10h2.2M15.3 10h2.2M4.6 4.6l1.6 1.6M13.8 13.8l1.6 1.6M4.6 15.4l1.6-1.6M13.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+
+{%- when "java" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 8.5h8v3.5a4 4 0 0 1-4 4h0a4 4 0 0 1-4-4V8.5Z" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M14 9.5h1a1.8 1.8 0 0 1 0 3.6h-1" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M7.5 3.5c-.7.9-.7 1.6 0 2.4M10 3c-.7.9-.7 1.6 0 2.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+</svg>
+
+{%- when "spring" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14.8 5.2c1.9 2.7 1.7 6.6-1 9.6-2.8 2.8-6.6 3-9.3 1.1 1.6.2 3.5-.2 5.1-1.8 1.6-1.6 2.1-3.5 1.8-5.1M14.8 5.2c-1.4-1-3.6-.8-5.4 1-1.7 1.7-2 4-1 5.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M14.8 5.2C13.2 3.4 11 2.7 9 3.3M4.5 15.9c-.7-2-.1-4.2 1.7-5.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+
+{%- when "azure" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.5 15.5h9.5l-5-9-2.6 4.6 2 1.2h-7l3.1-6.3" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
+
+{%- when "pega" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 3l6 3.2v7.6L10 17l-6-3.2V6.2L10 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M10 3v7M4 6.2 10 10M16 6.2 10 10" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
+
+{%- when "security" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 2.8 16 5v5.1c0 3.6-2.6 6-6 7.1-3.4-1.1-6-3.5-6-7.1V5l6-2.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M7.6 9.9l1.8 1.8 3-3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+{%- when "career" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2.75" y="6.5" width="14.5" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M7 6.5V5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 13 5v1.5" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M2.75 10.5h14.5" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+
+{%- when "search" -%}
+<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="7" cy="7" r="5.25" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+
+{%- when "menu" -%}
+<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+
+{%- when "close" -%}
+<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+
+{%- when "github" -%}
+<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.49c-2.23.48-2.7-1.07-2.7-1.07-.36-.93-.89-1.17-.89-1.17-.72-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.96 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.08-1.87 3.76-3.65 3.96.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 10 2Z"/>
+</svg>
+
+{%- when "linkedin" -%}
+<svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5.3 7.3H2.4V17h2.9V7.3ZM3.86 6.1a1.68 1.68 0 1 0 0-3.36 1.68 1.68 0 0 0 0 3.36ZM17.6 17v-5.6c0-3-1.6-4.4-3.75-4.4-1.73 0-2.5.96-2.93 1.63V7.3H8.02c.04.86 0 9.7 0 9.7h2.9v-5.4c0-.29.02-.58.11-.79.24-.58.78-1.19 1.7-1.19 1.2 0 1.68.92 1.68 2.26V17h2.9Z"/>
+</svg>
+
+{%- when "email" -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2.5" y="4.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M3.5 5.5 10 11l6.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+{%- else -%}
+<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 0 0 .3.7l7 7a1 1 0 0 0 1.4 0l4.5-4.5a1 1 0 0 0 0-1.4l-7-7A1 1 0 0 0 8.5 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="6" cy="6" r="1" fill="currentColor"/>
+</svg>
+
+{%- endcase -%}

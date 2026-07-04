@@ -1,0 +1,7 @@
+<ul class="post-list">
+  {% for post in include.posts %}
+    {% include post-card.html post=post %}
+  {% else %}
+    <li class="empty-state">No articles yet.</li>
+  {% endfor %}
+</ul>

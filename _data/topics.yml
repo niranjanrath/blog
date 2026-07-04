@@ -1,0 +1,47 @@
+# Optional metadata for known topics: which icon to show in the sidebar /
+# mobile menu, and which cover illustration to use on post cards when a
+# post doesn't set its own `cover:` in front matter.
+#
+# A topic that isn't listed here still works fine — it just falls back to
+# the "default" icon and cover below. Add an entry here any time you want
+# a topic to have its own icon/cover instead of the default.
+
+architecture:
+  icon: architecture
+  cover: /assets/img/covers/architecture.svg
+
+system-design:
+  icon: architecture
+  cover: /assets/img/covers/architecture.svg
+
+ai:
+  icon: ai
+  cover: /assets/img/covers/ai.svg
+
+java:
+  icon: java
+  cover: /assets/img/covers/java.svg
+
+spring:
+  icon: spring
+  cover: /assets/img/covers/spring.svg
+
+azure:
+  icon: azure
+  cover: /assets/img/covers/azure.svg
+
+pega:
+  icon: pega
+  cover: /assets/img/covers/pega.svg
+
+security:
+  icon: security
+  cover: /assets/img/covers/security.svg
+
+career:
+  icon: career
+  cover: /assets/img/covers/career.svg
+
+default:
+  icon: default
+  cover: /assets/img/covers/default.svg

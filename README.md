@@ -1,0 +1,112 @@
+# Byte-Sized Engineering
+
+A fast, minimal, content-first technical blog built with Jekyll, styled in
+the spirit of dev.to, and hosted entirely on GitHub Pages. Zero backend,
+zero database, zero JS framework — just Markdown files and a static build.
+
+## What's inside
+
+- **Two pages**: Home (paginated post list + search) and About.
+- **Topics**: generated automatically from each post's `topics:` front
+  matter — add a new topic to a post and its `/topics/<slug>/` page appears
+  on the next build. No manual page creation. Each topic gets an icon and
+  a cover illustration via `_data/topics.yml` (unmapped topics fall back to
+  a default icon/cover automatically).
+- **Search**: [Pagefind](https://pagefind.app), mounted directly inline in
+  the header — no backend, no modal, works entirely in the browser.
+- **Everything else the brief asked for**: reading time, syntax
+  highlighting (Rouge), RSS feed, sitemap, SEO tags, previous/next article
+  navigation, and a responsive layout (sidebar on desktop, collapsible
+  menu on mobile).
+
+## Writing a post
+
+Add a Markdown file to `_posts/` named `YYYY-MM-DD-your-title.md`:
+
+```markdown
+---
+title: Building AI Systems
+date: 2026-07-04
+author: Your Name
+topics:
+  - AI
+tags:
+  - spring-ai
+  - rag
+  - llm
+summary: A short excerpt shown on the home page and topic pages.
+---
+
+Your article content in Markdown goes here.
+```
+
+- `topics` drives navigation (sidebar, mobile menu, `/topics/` pages) —
+  keep this to one or two broad categories per post.
+- `tags` are for finer-grained classification within an article; they're
+  displayed as chips on the post card and article page but don't generate
+  their own pages.
+- `summary` is optional. If omitted, the home/topic page excerpt falls
+  back to the post's auto-generated excerpt (first paragraph).
+- `cover` is optional — a path to a custom thumbnail image for the post
+  card (e.g. `/assets/img/my-cover.jpg`). If omitted, the post uses the
+  cover illustration for its first topic, defined in `_data/topics.yml`.
+
+That's the entire authoring workflow. No build step, no CLI command — just
+commit the file and push.
+
+## Site configuration
+
+Edit `_config.yml` to set the site title, URL, and your author bio,
+background, interests, GitHub, and LinkedIn links (used on the About page
+and in the footer). Drop a photo at `assets/img/avatar.png` for the About
+page — if it's missing, the image is simply hidden, so the site still
+builds fine without one.
+
+## Local development
+
+```bash
+bundle install
+bundle exec jekyll serve --livereload
+```
+
+Visit `http://localhost:4000`. Note: the search box won't return results
+in local dev unless you also run Pagefind against the built site —
+search is wired up in the GitHub Actions workflow (below) and works
+automatically once deployed. If you want to test search locally:
+
+```bash
+bundle exec jekyll build
+npx pagefind --site _site --serve
+```
+
+## Deployment (GitHub Pages via GitHub Actions)
+
+This repo builds with a GitHub Actions workflow instead of GitHub Pages'
+default Jekyll build, because Pagefind needs a post-build indexing step
+that the default build doesn't support.
+
+1. Push this repository to GitHub.
+2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+3. Push to `main` — `.github/workflows/deploy.yml` builds the site,
+   indexes it with Pagefind, and deploys it automatically.
+4. Update `url` (and `baseurl` if this isn't a `username.github.io` repo)
+   in `_config.yml` to match your GitHub Pages URL.
+
+## Project structure
+
+```
+_config.yml            Site settings, author info, plugins
+_layouts/               default, home, post, page, topic
+_includes/              header, sidebar, footer, post cards, search modal
+_plugins/               topic page generator, reading-time filter
+_posts/                 Markdown articles
+assets/css/main.css     All styling (single file, no build step)
+assets/js/main.js       Mobile menu + search modal wiring
+.github/workflows/      CI build + Pagefind index + deploy
+```
+
+## Design
+
+White background, near-black text, gray secondary text, a single blue
+accent, light gray borders, no unnecessary animation — the goal is that the
+design gets out of the way of the writing.

@@ -1,0 +1,88 @@
+# ---------------------------------------------------------------------------
+# Site configuration
+# Edit the values below to make the site your own. Nothing else needs to
+# change to add posts, topics, or pages.
+# ---------------------------------------------------------------------------
+
+title: "Byte-Sized Engineering"
+tagline: "Notes on architecture, AI, and building software that lasts"
+description: >-
+  A personal technical blog covering software architecture, AI engineering,
+  Java, Spring, Azure, Pega, security, and career notes.
+
+#url: "https://yourusername.github.io"   # e.g. https://janedoe.github.io
+#baseurl: ""                             # "/repo-name" if not a username.github.io repo
+
+url: "https://niranjanrath.github.io"
+baseurl: "/blog"
+
+author:
+  name: "Niranjan Rath"
+  bio: >-
+    Software engineer writing about the systems, languages, and platforms
+    I use day to day. I write to think clearly and to leave a trail other
+    engineers can follow.
+  background: >-
+    10+ years building backend systems and integration platforms, spanning
+    fintech, e-commerce, and enterprise automation. Currently focused on
+    applied AI and cloud-native architecture.
+  interests:
+    - Software architecture
+    - Applied AI / LLMs
+    - Distributed systems
+    - Developer productivity
+  avatar: "/assets/img/avatar.png"
+  github: "https://github.com/yourusername"
+  linkedin: "https://www.linkedin.com/in/yourusername"
+  email: "you@example.com"
+
+# ---------------------------------------------------------------------------
+# Build settings
+# ---------------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+highlighter: rouge
+
+permalink: /:categories/:year/:month/:day/:title/
+
+paginate: 8
+paginate_path: "/page:num/"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-include-cache
+
+feed:
+  path: /feed.xml
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - "*.gemspec"
+
+# Reading speed used for the "reading time" calculation (words per minute)
+words_per_minute: 200
