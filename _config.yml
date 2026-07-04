@@ -11,7 +11,7 @@ description: >-
   Java, Spring, Azure, Pega, security, and career notes.
 
 url: "https://niranjanrath.github.io"
-baseurl: "/blog"                     
+baseurl: "/blog"
 
 author:
   name: "Your Name"

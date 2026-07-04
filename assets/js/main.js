@@ -30,8 +30,8 @@
       element: "#header-search",
       showSubResults: true,
       showImages: false,
-      resetStyles: false,
-      placeholder: "Search posts...",
+      resetStyles: true,
+      translations: { placeholder: "Search posts..." },
     });
   }
 

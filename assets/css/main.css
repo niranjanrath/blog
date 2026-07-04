@@ -169,43 +169,102 @@ svg { display: block; }
    Pagefind search box theming (mounted inline in the header)
 --------------------------------------------------------------------------- */
 .pagefind-ui {
-  --pagefind-ui-primary: var(--color-text);
-  --pagefind-ui-text: var(--color-text);
+  --pagefind-ui-primary: var(--color-accent);
+  --pagefind-ui-text: var(--color-text-secondary);
   --pagefind-ui-background: var(--color-bg);
   --pagefind-ui-border: var(--color-border);
   --pagefind-ui-tag: var(--color-chip-bg);
   --pagefind-ui-border-width: 1px;
   --pagefind-ui-border-radius: 8px;
   --pagefind-ui-font: var(--font-body);
-  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-scale: 1;
+  font-size: 14px;
 }
-.pagefind-ui__search-input { padding-left: 34px !important; }
+
+/* Compact input to match the rest of the header, instead of Pagefind's large default */
+.pagefind-ui__search-input {
+  height: 38px !important;
+  padding: 0 34px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  box-sizing: border-box;
+}
 .pagefind-ui__form::before {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  width: 15px;
-  height: 15px;
-  transform: translateY(-50%);
-  background-color: var(--color-text-secondary);
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5.25" fill="none" stroke="black" stroke-width="1.5"/><path d="M11 11L14.5 14.5" stroke="black" stroke-width="1.5" stroke-linecap="round"/></svg>') center / contain no-repeat;
-  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5.25" fill="none" stroke="black" stroke-width="1.5"/><path d="M11 11L14.5 14.5" stroke="black" stroke-width="1.5" stroke-linecap="round"/></svg>') center / contain no-repeat;
-  pointer-events: none;
-  z-index: 1;
+  width: 14px !important;
+  height: 14px !important;
+  top: 12px !important;
+  left: 12px !important;
+  opacity: 0.55;
 }
-.pagefind-ui__form { position: relative; }
-.pagefind-ui__results-area {
+
+/* Clear button: strip native <button> chrome, keep it a plain text link */
+.pagefind-ui__search-clear {
+  top: 3px !important;
+  right: 3px !important;
+  height: 32px !important;
+  font-size: 12.5px !important;
+  font-weight: 500;
+  border: none !important;
+  background: transparent !important;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.pagefind-ui__search-clear:hover { color: var(--color-accent); }
+
+/* Results: float as an anchored dropdown instead of pushing the page layout */
+.pagefind-ui__drawer {
   position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: block;
+  width: min(420px, 90vw);
+  max-height: 70vh;
+  overflow-y: auto;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.1);
-  margin-top: 6px;
-  max-height: 70vh;
-  overflow-y: auto;
-  width: min(420px, 90vw);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.14);
+  padding: 14px 18px;
   z-index: 60;
+}
+.pagefind-ui__results-area { min-width: 0; width: 100%; margin-top: 0; }
+.pagefind-ui__message {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  height: auto;
+  padding: 0 0 10px;
+}
+.pagefind-ui__results { list-style: none; margin: 0; padding: 0; }
+.pagefind-ui__result {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.pagefind-ui__result:last-child { border-bottom: none; }
+.pagefind-ui__result-link {
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.pagefind-ui__result-link:hover { color: var(--color-accent); text-decoration: none; }
+.pagefind-ui__result-excerpt {
+  color: var(--color-text-secondary);
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.pagefind-ui__result-excerpt mark {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 600;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.pagefind-ui__button {
+  margin-top: 12px !important;
+  height: 36px !important;
+  font-size: 13.5px !important;
 }
 
 /* ---------------------------------------------------------------------------
