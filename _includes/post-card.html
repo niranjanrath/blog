@@ -12,7 +12,7 @@
     <p class="post-card-meta">
       <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%b %-d, %Y" }}</time>
       <span aria-hidden="true">&middot;</span>
-      <span>{{ include.post.content | reading_time }}</span>
+      <span>{% include reading-time.html content=include.post.content %}</span>
     </p>
     <p class="post-card-excerpt">
       {{ include.post.summary | default: include.post.excerpt | strip_html | truncatewords: 28 }}

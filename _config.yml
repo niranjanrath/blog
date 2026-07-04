@@ -10,14 +10,11 @@ description: >-
   A personal technical blog covering software architecture, AI engineering,
   Java, Spring, Azure, Pega, security, and career notes.
 
-#url: "https://yourusername.github.io"   # e.g. https://janedoe.github.io
-#baseurl: ""                             # "/repo-name" if not a username.github.io repo
-
-url: "https://niranjanrath.github.io"
-baseurl: "/blog"
+url: "https://yourusername.github.io"   # e.g. https://janedoe.github.io
+baseurl: ""                             # "/repo-name" if not a username.github.io repo
 
 author:
-  name: "Niranjan Rath"
+  name: "Your Name"
   bio: >-
     Software engineer writing about the systems, languages, and platforms
     I use day to day. I write to think clearly and to leave a trail other

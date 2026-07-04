@@ -9,7 +9,7 @@ layout: default
       <span aria-hidden="true">&middot;</span>
       <span>{{ page.author | default: site.author.name }}</span>
       <span aria-hidden="true">&middot;</span>
-      <span>{{ content | reading_time }}</span>
+      <span>{% include reading-time.html content=content %}</span>
     </p>
     {% if page.topics %}
     <p class="post-topics">

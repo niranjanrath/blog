@@ -1,0 +1,11 @@
+{%- comment -%}
+  Usage: {% include reading-time.html content=some_html_content %}
+  Uses Jekyll's built-in `number_of_words` filter, not a custom plugin, so
+  this works under GitHub's default Pages build (safe mode) as well as a
+  custom GitHub Actions build.
+{%- endcomment -%}
+{%- assign wpm = site.words_per_minute | default: 200 -%}
+{%- assign word_count = include.content | strip_html | number_of_words -%}
+{%- assign read_minutes = word_count | plus: wpm | minus: 1 | divided_by: wpm -%}
+{%- if read_minutes < 1 -%}{%- assign read_minutes = 1 -%}{%- endif -%}
+{{ read_minutes }} min read
