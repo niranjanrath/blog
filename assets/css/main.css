@@ -75,13 +75,13 @@ svg { display: block; }
   font-weight: 700;
   font-size: 20px;
   color: var(--color-accent);
+  margin-right: auto;
 }
 .brand:hover { text-decoration: none; }
 
 .primary-nav {
   display: flex;
   gap: 24px;
-  margin-right: auto;
 }
 .primary-nav a {
   color: var(--color-text-secondary);
