@@ -180,6 +180,9 @@ svg { display: block; }
   --pagefind-ui-scale: 1;
   font-size: 14px;
 }
+.pagefind-ui, .pagefind-ui *, .pagefind-ui *::before, .pagefind-ui *::after {
+  box-sizing: border-box;
+}
 
 /* Compact input to match the rest of the header, instead of Pagefind's large default */
 .pagefind-ui__search-input {
@@ -187,13 +190,16 @@ svg { display: block; }
   padding: 0 34px !important;
   font-size: 14px !important;
   font-weight: 400 !important;
-  box-sizing: border-box;
 }
+/* Their icon is a masked ::before on .pagefind-ui__form; re-center and re-size it
+   with a percentage + transform instead of fixed pixels, so it stays centered
+   no matter what height the input ends up at. */
 .pagefind-ui__form::before {
   width: 14px !important;
   height: 14px !important;
-  top: 12px !important;
+  top: 50% !important;
   left: 12px !important;
+  transform: translateY(-50%);
   opacity: 0.55;
 }
 
@@ -212,7 +218,9 @@ svg { display: block; }
 }
 .pagefind-ui__search-clear:hover { color: var(--color-accent); }
 
-/* Results: float as an anchored dropdown instead of pushing the page layout */
+/* Results: float as an anchored dropdown instead of pushing the page layout.
+   Fixed width + border-box + wrapping on every text node keeps long words
+   and excerpts from ever crossing the border. */
 .pagefind-ui__drawer {
   position: absolute;
   top: calc(100% + 8px);
@@ -220,12 +228,13 @@ svg { display: block; }
   display: block;
   width: min(420px, 90vw);
   max-height: 70vh;
+  overflow-x: hidden;
   overflow-y: auto;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   box-shadow: 0 12px 28px rgba(17, 24, 39, 0.14);
-  padding: 14px 18px;
+  padding: 16px 20px;
   z-index: 60;
 }
 .pagefind-ui__results-area { min-width: 0; width: 100%; margin-top: 0; }
@@ -235,17 +244,21 @@ svg { display: block; }
   color: var(--color-text-secondary);
   height: auto;
   padding: 0 0 10px;
+  overflow-wrap: anywhere;
 }
-.pagefind-ui__results { list-style: none; margin: 0; padding: 0; }
+.pagefind-ui__results { list-style: none; margin: 0; padding: 0; width: 100%; }
 .pagefind-ui__result {
   padding: 10px 0;
   border-bottom: 1px solid var(--color-border);
+  width: 100%;
 }
 .pagefind-ui__result:last-child { border-bottom: none; }
 .pagefind-ui__result-link {
   color: var(--color-text);
   font-weight: 600;
   font-size: 14.5px;
+  display: block;
+  overflow-wrap: anywhere;
 }
 .pagefind-ui__result-link:hover { color: var(--color-accent); text-decoration: none; }
 .pagefind-ui__result-excerpt {
@@ -253,6 +266,7 @@ svg { display: block; }
   font-size: 13.5px;
   line-height: 1.5;
   margin-top: 4px;
+  overflow-wrap: anywhere;
 }
 .pagefind-ui__result-excerpt mark {
   background: var(--color-accent-soft);
@@ -483,11 +497,11 @@ svg { display: block; }
 --------------------------------------------------------------------------- */
 .page-title, .post-title { font-size: 32px; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.01em; }
 
-.post-header { max-width: var(--content-width); margin: 0 auto 32px; }
+.post-header { max-width: var(--content-width); margin: 0 0 32px; }
 .post-meta { color: var(--color-text-secondary); font-size: 14.5px; margin: 0 0 14px; }
 .post-topics { margin: 0; }
 
-.post-content, .page-body { max-width: var(--content-width); margin: 0 auto; font-size: 17.5px; }
+.post-content, .page-body { max-width: var(--content-width); margin: 0; font-size: 17.5px; }
 
 .post-content h2 { font-size: 25px; margin: 40px 0 16px; }
 .post-content h3 { font-size: 20px; margin: 32px 0 12px; }
@@ -531,7 +545,7 @@ svg { display: block; }
 
 .post-tags {
   max-width: var(--content-width);
-  margin: 32px auto 0;
+  margin: 32px 0 0;
   padding-top: 20px;
   border-top: 1px solid var(--color-border);
   color: var(--color-text-secondary);
@@ -539,7 +553,7 @@ svg { display: block; }
 }
 .post-tags .tag { margin-right: 12px; }
 
-.post-nav { max-width: var(--content-width); margin: 40px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.post-nav { max-width: var(--content-width); margin: 40px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .post-nav-link { border: 1px solid var(--color-border); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
 .post-nav-link:hover { border-color: var(--color-border-strong); text-decoration: none; }
 .post-nav-link.next { text-align: right; grid-column: 2; }
