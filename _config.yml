@@ -4,7 +4,7 @@
 # change to add posts, topics, or pages.
 # ---------------------------------------------------------------------------
 
-title: "Byte-Sized Engineering"
+title: "Niranjan Rath"
 tagline: "Notes on architecture, AI, and building software that lasts"
 description: >-
   A personal technical blog covering software architecture, AI engineering,
@@ -14,7 +14,7 @@ url: "https://niranjanrath.github.io"
 baseurl: "/blog"
 
 author:
-  name: "Your Name"
+  name: "WebAdmin"
   bio: >-
     Software engineer writing about the systems, languages, and platforms
     I use day to day. I write to think clearly and to leave a trail other
@@ -29,9 +29,9 @@ author:
     - Distributed systems
     - Developer productivity
   avatar: "/assets/img/avatar.png"
-  github: "https://github.com/yourusername"
-  linkedin: "https://www.linkedin.com/in/yourusername"
-  email: "you@example.com"
+  github: "https://github.com/niranjanrath"
+  linkedin: "https://www.linkedin.com/in/niranjanrath"
+  email: "webadmin@webadmin.com"
 
 # ---------------------------------------------------------------------------
 # Build settings
