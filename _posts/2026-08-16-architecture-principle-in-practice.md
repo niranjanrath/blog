@@ -26,7 +26,7 @@ Here is how I think about each step.
 
 This is where I try to slow down.
 
-When someone comes to me with a requirement, my first instinct should not be to think about Spring Boot, Kafka, Azure, microservices or databases.
+When someone comes to me with a requirement, my first instinct should not be to think about technology like Spring Boot, Kafka, Azure, microservices or databases etc.
 
 Instead, I ask:
 
