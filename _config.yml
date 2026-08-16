@@ -53,7 +53,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Your Name"
+      author: "Niranjan Rath"
   - scope:
       path: ""
       type: "pages"
