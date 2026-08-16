@@ -22,8 +22,6 @@ It sounds simple. In practice, it takes a lot of discipline.
 
 Here is how I think about each step.
 
----
-
 ## 1. Understand the problem
 
 This is where I try to slow down.
@@ -66,8 +64,6 @@ The difference starts with **understanding the problem before accepting the prop
 ### The question I keep coming back to
 
 > **What problem are we actually solving?**
-
----
 
 ## 2. Simplify it
 
@@ -115,8 +111,6 @@ Simple means **no unnecessary complexity**.
 
 > **What is the simplest solution that satisfies the real requirements?**
 
----
-
 ## 3. Choose the right architecture
 
 Only after understanding and simplifying the problem do I start thinking about architecture.
@@ -162,8 +156,6 @@ The right question is:
 
 > **What architecture fits this problem?**
 
----
-
 ## 4. Explain the trade-offs
 
 This is where architecture becomes a decision rather than a diagram.
@@ -204,8 +196,6 @@ There are only **trade-offs that we consciously accept.**
 ### The question I keep coming back to
 
 > **What are we gaining, and what are we accepting in return?**
-
----
 
 ## 5. Guide the team
 
@@ -250,8 +240,6 @@ The important thing is that we explore the reasoning.
 
 > **Can the team build and evolve this architecture successfully?**
 
----
-
 ## 6. Operate it safely
 
 One thing I've learned is that an architecture can look great on a diagram and still be terrible in production.
@@ -294,8 +282,6 @@ This is where observability, resilience, security, backup, disaster recovery and
 
 > **Can we run this system safely in the real world?**
 
----
-
 # Putting It All Together
 
 For me, Solution Architecture can be reduced to six simple questions:
@@ -322,8 +308,6 @@ Why this technology?
 Why this complexity?
 
 Why can't we make it simpler?
-
----
 
 # Architecture Is a Continuous Loop
 
@@ -354,8 +338,6 @@ So the loop continues:
 > **Understand → Simplify → Choose → Explain → Guide → Operate → Learn**
 
 Then start again.
-
----
 
 # The Mindset
 
