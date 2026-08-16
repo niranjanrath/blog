@@ -10,341 +10,308 @@ tags:
 summary: >-
   Architecture is not about choosing technologies. It is about understanding the problem, simplifying complexity, making deliberate trade-offs, enabling teams, and building systems that can operate safely.
 ---
-As a Solution Architect, my job is not simply to design systems.
+Over time, I've realised that being a Solution Architect is not really about knowing the most technologies or drawing the most detailed architecture diagrams.
 
-It is to **understand the problem, make complexity manageable, help teams make good decisions, and ensure the solution can operate safely in the real world.**
+It's about **making good decisions when the problem is not always clear, the requirements are changing, and every decision has a consequence.**
 
-A simple way to think about this is:
+The more systems I work with, the more I come back to a simple principle:
 
 > **Understand the problem → Simplify it → Choose the right architecture → Explain the trade-offs → Guide the team → Operate it safely**
 
-This is the architecture thinking loop.
+It sounds simple. In practice, it takes a lot of discipline.
+
+Here is how I think about each step.
 
 ---
 
-## 1. Understand the Problem
+## 1. Understand the problem
 
-### The goal
+This is where I try to slow down.
 
-Before thinking about technology, understand **what problem we are actually trying to solve**.
+When someone comes to me with a requirement, my first instinct should not be to think about Spring Boot, Kafka, Azure, microservices or databases.
 
-Don't start with:
+Instead, I ask:
 
-> "Should we use Kafka?"
+> **What problem are we actually trying to solve?**
 
-Start with:
+I want to understand:
 
-> "What problem are we trying to solve?"
-
-### Meaningful questions
-
-- What problem are we solving?
-- Who has this problem?
-- Why does it matter?
+- Who has the problem?
+- What are they trying to achieve?
+- Why is it important?
 - What does success look like?
-- What must the system do?
-- What constraints do we have?
-- What happens if we don't solve it?
+- What does the system really need to do?
+- What constraints are we working with?
 
-### Architect mindset
+Sometimes the requirement we receive is actually a solution disguised as a requirement.
 
-> **Don't design yet. Understand first.**
+For example:
 
-A surprising amount of unnecessary architecture disappears once the problem is clearly understood.
+> "We need a Kafka-based asynchronous solution."
+
+That's not really the problem.
+
+The real problem might be:
+
+> "The processing takes several minutes and the user should not have to wait."
+
+Now we can explore different solutions.
+
+Maybe Kafka is appropriate.
+
+Maybe a simple background job is enough.
+
+The difference starts with **understanding the problem before accepting the proposed solution.**
+
+### The question I keep coming back to
+
+> **What problem are we actually solving?**
 
 ---
 
-# 2. Simplify It
+## 2. Simplify it
 
-### The goal
+Once the problem is understood, I ask myself:
 
-Remove unnecessary complexity before introducing new complexity.
+> **Can we make this simpler?**
 
-Ask:
+This is probably one of the most important questions an architect can ask.
 
-- Can we make this simpler?
+We naturally tend to add things:
+
+- Another microservice
+- Another database
+- Kafka
+- Redis
+- API Gateway
+- Event bus
+- Kubernetes
+- Service mesh
+
+Each one might be useful.
+
+But each one also creates another thing that somebody has to understand, maintain, monitor, secure and troubleshoot.
+
+So I ask:
+
 - What can we remove?
 - Do we really need another service?
-- Do we really need Kafka?
-- Do we really need a separate database?
-- Can an existing capability solve the problem?
-- Can a simple Spring Boot application solve it?
-- What is the simplest solution that satisfies the requirements?
+- Do we really need asynchronous processing?
+- Do we need another database?
+- Can an existing platform capability solve this?
+- Can a simple application solve the problem?
 
-For example, don't automatically turn:
+Sometimes the answer really is:
 
-```text
-Customer → Submit Request → Process Request
-```
+**Spring Boot + PostgreSQL + REST.**
 
-into:
+And that's perfectly fine.
 
-```text
-API Gateway
-    ↓
-Service A
-    ↓
-Kafka
-    ↓
-Service B
-    ↓
-Service C
-    ↓
-Redis
-    ↓
-PostgreSQL
-    ↓
-MongoDB
-```
+Simple does not mean primitive.
 
-if the actual problem can be solved with:
+Simple means **no unnecessary complexity**.
 
-```text
-Spring Boot → PostgreSQL
-```
+### The question I keep coming back to
 
-### Architect mindset
-
-> **Prefer simple until complexity is justified.**
-
-Complexity should have a reason.
+> **What is the simplest solution that satisfies the real requirements?**
 
 ---
 
-# 3. Choose the Right Architecture
+## 3. Choose the right architecture
 
-### The goal
+Only after understanding and simplifying the problem do I start thinking about architecture.
 
-Choose an architecture that fits the **actual problem and its constraints**.
+Now I can look at the things that actually matter:
 
-There is no universally "best" architecture.
-
-The right architecture depends on things such as:
-
-- Business requirements
-- Scale
+- Scalability
 - Availability
 - Performance
 - Security
-- Data characteristics
+- Resilience
+- Data
 - Change frequency
+- Integration
+- Operational requirements
 - Team structure
-- Operational capability
-- Cost
 
-### Meaningful questions
+This is where architecture patterns become useful.
 
-- What are the most important requirements?
-- What needs to scale?
-- What needs to be highly available?
-- What will change frequently?
-- Where should the boundaries be?
-- Should communication be synchronous or asynchronous?
-- Who owns the data?
-- Do we need one database or multiple?
-- What architecture pattern actually helps?
+Maybe we need:
 
-Then ask the most important question:
+- Modular monolith
+- Microservices
+- Event-driven architecture
+- CQRS
+- Batch processing
+- API-based integration
+- Asynchronous processing
 
-> **Why this architecture?**
+But I don't want to start with the pattern.
 
-### Architect mindset
+I want the **problem to lead me to the pattern.**
 
-> **Architecture should follow the problem, not technology fashion.**
+For example:
 
-Don't use microservices because "modern systems use microservices."
+If we have a relatively simple business domain, a small team and moderate scale, a modular monolith may be a very good architecture.
 
-Use them when the problem and the organisational/operational context justify them.
+If we have independently evolving domains, different scaling requirements and multiple teams, microservices may make more sense.
+
+Neither is automatically better.
+
+The right question is:
+
+> **What architecture fits this problem?**
 
 ---
 
-# 4. Explain the Trade-offs
+## 4. Explain the trade-offs
 
-### The goal
+This is where architecture becomes a decision rather than a diagram.
 
-Every architectural decision has consequences.
+Every architectural choice has a price.
 
-There is rarely a perfect solution.
+Take Kafka as an example.
 
-A good architect makes the trade-offs visible.
+Kafka can give us:
 
-For every important decision, ask:
-
-- What do we gain?
-- What do we give up?
-- What complexity are we introducing?
-- What risks are we accepting?
-- What happens if we choose the alternative?
-- Can we reverse the decision later?
-
-### Example: Kafka
-
-**Benefit**
-
-- Asynchronous processing
 - Decoupling
-- Durable event streams
+- Asynchronous processing
+- Durable events
 - Multiple consumers
 
-**Cost**
+But we also get:
 
-- Additional infrastructure
-- Operational complexity
+- More infrastructure
+- More operational work
 - Eventual consistency
-- More difficult debugging
+- More complicated debugging
+- More failure scenarios
 
-So the architectural conversation should not be:
+So instead of saying:
 
-> "Kafka is scalable, so let's use Kafka."
+> "Kafka is scalable, therefore we should use Kafka."
 
-It should be:
+I'd rather say:
 
-> "Kafka gives us asynchronous and decoupled processing, but introduces operational complexity and eventual consistency. We accept that trade-off because the requirements justify it."
+> "Kafka gives us the decoupling and asynchronous processing we need, and we're willing to accept the additional operational complexity."
 
-### Architect mindset
+That makes the decision much more honest.
 
-> **Don't hide complexity. Explain why you accept it.**
+There is usually no perfect architecture.
 
----
+There are only **trade-offs that we consciously accept.**
 
-# 5. Guide the Team
+### The question I keep coming back to
 
-### The goal
-
-Architecture is not a document.
-
-It becomes valuable only when the team can **understand it, challenge it and build it**.
-
-### Meaningful questions
-
-- Does the team understand the architecture?
-- Are the responsibilities clear?
-- Are the boundaries clear?
-- Who owns the data?
-- How will errors be handled?
-- How will we test it?
-- What decisions still need to be made?
-- What assumptions should we validate?
-- Can we build a small proof of concept?
-
-And an important question for the architect:
-
-> **Can the team challenge my architecture?**
-
-If engineers cannot question an architectural decision, you may have created authority rather than architecture.
-
-### Architect mindset
-
-> **Don't just design the solution. Enable the team to build it.**
-
-The architect should help connect:
-
-```text
-Business Intent
-       ↓
-Architecture
-       ↓
-Engineering Decisions
-       ↓
-Working Software
-```
+> **What are we gaining, and what are we accepting in return?**
 
 ---
 
-# 6. Operate It Safely
+## 5. Guide the team
 
-### The goal
+Architecture doesn't end when the architecture diagram is approved.
 
-Architecture does not end when the application is deployed.
+That's when the real work starts.
 
-A system that works in development but cannot be safely operated is not a finished architecture.
+The development team now has to turn the architecture into working software.
 
-### Meaningful questions
+As an architect, I need to help with that.
+
+I want the team to understand:
+
+- Why the architecture looks the way it does
+- Where the boundaries are
+- Who owns what
+- How services communicate
+- How data is handled
+- What happens when things fail
+- How the solution should be tested
+- What decisions still need to be made
+
+But there is another important part.
+
+**The team should be able to challenge the architecture.**
+
+If a developer says:
+
+> "Why are we using Kafka here? A database-backed job would be much simpler."
+
+that's not a challenge to authority.
+
+That's a valuable architecture conversation.
+
+Maybe the developer is wrong.
+
+Maybe the architect is wrong.
+
+The important thing is that we explore the reasoning.
+
+### The question I keep coming back to
+
+> **Can the team build and evolve this architecture successfully?**
+
+---
+
+## 6. Operate it safely
+
+One thing I've learned is that an architecture can look great on a diagram and still be terrible in production.
+
+Production doesn't care how beautiful the architecture diagram is.
+
+Things fail.
+
+Databases become unavailable.
+
+APIs time out.
+
+Messages get stuck.
+
+Deployments go wrong.
+
+Certificates expire.
+
+Unexpected data arrives.
+
+Users do things we never anticipated.
+
+So I want to think about operations while designing the system, not after it is deployed.
+
+I ask:
 
 - How will we know something is wrong?
 - What happens when a dependency fails?
-- What happens when the database is unavailable?
-- How do we recover?
-- Can we deploy safely?
+- Can we retry safely?
+- Can we recover?
 - Can we roll back?
-- Do we have logs, metrics and traces?
+- Do we have useful logs, metrics and traces?
 - Who gets alerted?
-- How do we handle security incidents?
+- Can we restore the data?
 - What happens during a disaster?
-- How do we restore the system?
 
-Think about:
+This is where observability, resilience, security, backup, disaster recovery and safe deployment become part of architecture.
 
-**Observability**
+### The question I keep coming back to
 
-Logs → Metrics → Traces → Alerts
-
-**Resilience**
-
-Timeouts → Retries → Circuit breakers → Graceful degradation
-
-**Recovery**
-
-Backup → Restore → DR → Recovery procedures
-
-**Deployment**
-
-CI/CD → Automated tests → Safe deployment → Rollback
-
-### Architect mindset
-
-> **If you cannot operate it safely, the architecture isn't finished.**
+> **Can we run this system safely in the real world?**
 
 ---
 
-# The Complete Architecture Thinking Loop
+# Putting It All Together
 
-Put the six steps together:
+For me, Solution Architecture can be reduced to six simple questions:
 
-```text
-┌──────────────────────┐
-│  1. Understand       │
-│  What problem?       │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│  2. Simplify         │
-│  Can it be simpler?  │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│  3. Choose           │
-│  What fits best?     │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│  4. Trade-offs       │
-│  What do we gain?    │
-│  What do we give up? │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│  5. Guide            │
-│  Can we build it?    │
-└──────────┬───────────┘
-           ↓
-┌──────────────────────┐
-│  6. Operate          │
-│  Can we run it safely│
-└──────────┬───────────┘
-           │
-           └──────────────→ Learn & Improve
-```
+| Step | Question |
+|---|---|
+| **Understand** | What problem are we solving? |
+| **Simplify** | Can we make it simpler? |
+| **Choose** | What architecture fits? |
+| **Trade-offs** | What do we gain and give up? |
+| **Guide** | Can the team build it successfully? |
+| **Operate** | Can we run it safely? |
 
-And then the loop starts again.
+And there is one question sitting underneath all of them:
 
----
-
-# The "Why?" Test
-
-Behind all six steps is one simple question:
-
-> ## **Why?**
+> **Why?**
 
 Why this requirement?
 
@@ -354,76 +321,54 @@ Why this technology?
 
 Why this complexity?
 
-Why this architecture?
-
-Why this trade-off?
-
 Why can't we make it simpler?
-
-The ability to repeatedly ask **"why?"** is one of the most valuable skills an architect can develop.
 
 ---
 
-# A Simple Architecture Checklist
+# Architecture Is a Continuous Loop
 
-Before approving or recommending a solution, ask yourself:
+I don't see architecture as something we do once and then forget.
 
-### Problem
+We make assumptions.
 
-- [ ] Do I understand the real problem?
-- [ ] Do I understand the desired business outcome?
+We design something.
 
-### Simplicity
+The team builds it.
 
-- [ ] Is this the simplest solution that works?
-- [ ] Have we removed unnecessary components?
+We put it into production.
 
-### Architecture
+Then reality teaches us something.
 
-- [ ] Does the architecture fit the requirements?
-- [ ] Are the boundaries clear?
-- [ ] Are the important quality attributes addressed?
+Maybe the system doesn't scale the way we expected.
 
-### Trade-offs
+Maybe a component is unnecessarily complicated.
 
-- [ ] Do we understand what we gain?
-- [ ] Do we understand what we give up?
-- [ ] Are the important decisions documented?
+Maybe users don't actually need a capability we spent months building.
 
-### Team
+Maybe an operational problem reveals that we made the wrong trade-off.
 
-- [ ] Can the team understand and implement it?
-- [ ] Have engineers had the opportunity to challenge it?
+That's valuable information.
 
-### Operations
+So the loop continues:
 
-- [ ] Can we monitor it?
-- [ ] Can we recover it?
-- [ ] Can we deploy and roll it back safely?
-- [ ] Have security and failure scenarios been considered?
+> **Understand → Simplify → Choose → Explain → Guide → Operate → Learn**
+
+Then start again.
 
 ---
 
 # The Mindset
 
-The role of a Solution Architect is not to create the most sophisticated architecture.
+I don't think a good Solution Architect is the person who knows the most technologies.
 
-It is to create the **right level of architecture for the problem**.
+It's the person who can look at a messy problem and help the team move towards a **simple, appropriate and sustainable solution.**
 
-A good architect knows many technologies.
+Technology is the toolbox.
 
-A great architect knows **when not to use them**.
+Architecture is knowing **which tool to use, why to use it, and when not to use it.**
 
-So when entering an architecture discussion, don't start by asking:
+And perhaps the most useful question an architect can ask is also the simplest:
 
-> **"What architecture should I design?"**
+> ## **"Can we make this simpler?"**
 
-Start with:
-
-> **"What problem are we actually trying to solve?"**
-
-Then follow the loop:
-
-> **Understand → Simplify → Choose → Explain → Guide → Operate → Learn**
-
-That is architecture thinking.
+That question alone can prevent a lot of unnecessary architecture.
