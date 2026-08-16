@@ -1,7 +1,7 @@
 ---
 title: "Clean Architecture in Practice: What Actually Survives Contact With a Real Codebase"
 date: 2026-06-01
-author: Your Name
+
 topics:
   - Architecture
 tags:
