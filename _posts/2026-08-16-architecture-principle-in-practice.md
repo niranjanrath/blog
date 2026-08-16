@@ -1,7 +1,6 @@
 ---
 title: " Architecture Thinking: The 6-Step Loop"
 date: 2026-08-16
-
 topics:
   - Architecture
 tags:
@@ -9,11 +8,8 @@ tags:
   - simplicity-in-system-thinking
   - architectural-thinking
 summary: >-
-Architecture is not about choosing technologies. It is about understanding the problem, simplifying complexity, making deliberate trade-offs, enabling teams, and building systems that can operate safely.
+  Architecture is not about choosing technologies. It is about understanding the problem, simplifying complexity, making deliberate trade-offs, enabling teams, and building systems that can operate safely.
 ---
-
-#
-
 As a Solution Architect, my job is not simply to design systems.
 
 It is to **understand the problem, make complexity manageable, help teams make good decisions, and ensure the solution can operate safely in the real world.**
