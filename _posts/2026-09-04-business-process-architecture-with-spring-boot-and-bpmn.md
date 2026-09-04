@@ -102,11 +102,6 @@ Represents the outcome of the application:
 These concepts belong to the business domain regardless of the workflow technology used to implement the process.
 
 ## A Four-Layer Architecture
-
-<img src="{{ '/blog/assets/img/business-process-architecture/loan-process-architecture.png' | relative_url }}"
-  alt="Business Process Architecture with Spring Boot and BPMN"
-  style="width:100%; height:auto;">
-
 The application can be understood through four responsibility-based layers.
 
 | Layer | Question It Answers |
