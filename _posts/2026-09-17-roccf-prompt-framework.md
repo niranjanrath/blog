@@ -7,8 +7,6 @@ tags:
   - Productivity
 ---
 
-# Use the ROCCF Framework to Structure Every AI Prompt
-
 Use the **ROCCF** framework (**Role, Objective, Constraints, Context, Format**) to structure every AI prompt for reliable, high-quality results.
 
 ## The ROCCF Prompt Structure
