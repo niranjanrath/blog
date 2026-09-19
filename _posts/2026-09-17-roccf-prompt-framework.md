@@ -42,7 +42,3 @@ Specify how the final output should look (e.g., *"A bulleted list"*, *"A table"*
 **Context:** [Provide background info, audience, or source details].
 
 **Format:** [Specify how the final answer should be presented].
-
-## Example Usage
-
-Would you like me to **adapt this template for a specific task** you have in mind right now (such as writing an email, coding, or summarizing notes)?
